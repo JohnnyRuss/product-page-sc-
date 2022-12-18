@@ -4,7 +4,7 @@ import { SliderActiveFig, SliderThumbs } from "../styles/slider.styles";
 
 import { SliderType } from "../../../Interface/types";
 interface SliderTypeLocal {
-  setOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  activateModalSlider?: () => void;
   isModalSlider?: boolean;
   children?: React.ReactNode;
 }
@@ -14,7 +14,7 @@ const Slider: React.FC<SliderType & SliderTypeLocal> = ({
   handleSlider,
   images,
   thumbnails,
-  setOpenModal,
+  activateModalSlider,
   children,
   isModalSlider,
 }) => {
@@ -25,13 +25,17 @@ const Slider: React.FC<SliderType & SliderTypeLocal> = ({
         isModalSlider={isModalSlider || undefined}
         onClick={(e) => {
           e.stopPropagation();
-          setOpenModal && setOpenModal(true);
+          activateModalSlider && activateModalSlider();
         }}
       >
         {images?.map(
           (img, i) =>
             i === activeIndex && (
-              <img src={img} key={`slider-active--fig---${img}`} alt="product" />
+              <img
+                src={img}
+                key={`slider-active--fig---${img}`}
+                alt="product"
+              />
             )
         )}
         {children}

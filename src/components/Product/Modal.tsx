@@ -4,6 +4,7 @@ import { ModalContainer } from "./styles/modal.styles";
 import ModalSliderBTN from "./components/ModalSliderBTN";
 import Slider from "./components/Slider";
 
+import useSlider from "../../hooks/useSlider";
 import { SliderType } from "../../Interface/types";
 interface ModalType {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,10 +13,10 @@ interface ModalType {
 const Modal: React.FC<SliderType & ModalType> = ({
   images,
   thumbnails,
-  activeIndex,
-  handleSlider,
   setOpenModal,
 }) => {
+  const { handleSlider, activeIndex } = useSlider(images ? images : null);
+
   return (
     <ModalContainer onClick={(e) => setOpenModal(false)}>
       <div className="content-box">

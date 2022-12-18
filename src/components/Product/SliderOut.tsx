@@ -5,7 +5,8 @@ import Slider from "./components/Slider";
 
 import { SliderType } from "../../Interface/types";
 interface SliderTypeLocal {
-  setOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  activateModalSlider?: () => void;
+  // setOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SliderOut: React.FC<SliderType & SliderTypeLocal> = ({
@@ -13,7 +14,7 @@ const SliderOut: React.FC<SliderType & SliderTypeLocal> = ({
   thumbnails,
   activeIndex,
   handleSlider,
-  setOpenModal,
+  activateModalSlider,
 }) => {
   return (
     <SliderOutContainer>
@@ -22,7 +23,7 @@ const SliderOut: React.FC<SliderType & SliderTypeLocal> = ({
         handleSlider={handleSlider}
         images={images}
         thumbnails={thumbnails}
-        setOpenModal={setOpenModal}
+        activateModalSlider={activateModalSlider}
       />
     </SliderOutContainer>
   );

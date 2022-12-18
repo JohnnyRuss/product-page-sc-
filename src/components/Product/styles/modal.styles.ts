@@ -21,6 +21,7 @@ export const ModalContainer = styled.div`
     height: 100%;
     width: min-content;
     padding: 4rem 0;
+    height: max-content;
 
     ${media.phoneSmall`
       height:160vw;
